@@ -7,7 +7,7 @@ import {
 
 // ------------Publicaciones------------------
 export const posts = () => {
-  const db = firebase.firestore();
+  const db = firebase.firestore(); // Llamando a firestore
   const FieldValue = firebase.firestore.FieldValue;
 
   /* ========================DATOS DE USUARIO==================================== */
@@ -251,6 +251,50 @@ export const posts = () => {
             const commentElement = commentTemplate(commentDoc);
 
             containerComments.appendChild(commentElement);
+            /* ===============Boton Borrar COMENTARIO================= */
+            // const containCo = document.querySelector('.comments-container');
+            const btnsDeleteComment = document.querySelectorAll('.btn-comment-delete');
+            btnsDeleteComment.forEach((btn) => {
+            // eslint-disable-next-line no-param-reassign
+              btn.onclick = (e) => {
+                // Eliminamos el comentario
+                db.collection('comments').doc(e.target.dataset.id).delete();
+                // console.log(e.target.dataset.id);
+              };
+            });
+            /* ===============Boton Editar COMENTARIO================= */
+            const btnsUpdateComment = document.querySelectorAll('.btn-comment-edit');
+            btnsUpdateComment.forEach((btn) => {
+            // eslint-disable-next-line no-param-reassign
+              btn.onclick = async (e) => {
+                // editStatus = true;
+                const idComment = e.target.dataset.id;
+                // console.log(idComment);
+                const docCom = db.collection('comments').doc(idComment);
+                const commentDocument = await docCom.get();
+                // console.log(commentDocument);
+                const commentData = commentDocument.data();
+                // console.log(commentData.comment); // Obtenemos el comentario
+
+                const btnGuardarComment = document.querySelector(`#cb${idComment}+button`);
+                const btnEditComment = document.querySelector(`#cb${idComment}`);
+                btnEditComment.style.display = 'none';
+                // btn.style.display = 'none';
+                btnGuardarComment.style.display = 'block';
+                const currentCommentBox = document.querySelector(`#cp${idComment}`);
+                // const contentBox = document.querySelector(`#p${idPost}`);
+                const editTextAreaComment = document.querySelector(`#ct${idComment}`);
+
+                editTextAreaComment.style.display = 'block';
+                currentCommentBox.style.display = 'none';
+                editTextAreaComment.innerHTML = commentData.comment;
+
+                btnGuardarComment.addEventListener('click', async (event) => {
+                  event.preventDefault();
+                  await db.collection('comments').doc(idComment).update({ comment: editTextAreaComment.value });// Actualizamos contenido del comentario
+                });
+              };
+            });
           });
         });
         /* =============== Boton Comentar ================= */

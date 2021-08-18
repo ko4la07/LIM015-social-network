@@ -427,6 +427,17 @@ nav ul{
   font-weight: 100;
 }
 
+.comment-textarea {
+  margin: 10px 0px;
+  background-color: rgba(225,225,225, 0.2);
+  color: white;
+  border-radius: 10px;
+  outline: none;
+  padding: 10px;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 300;
+}
+
 #btn-comment {
   background-image: url('assets/img/send.svg');
   background-position: center;
@@ -447,6 +458,7 @@ nav ul{
   display: flex;
   grid-template-columns: 1fr 25fr ;
 }
+
 /* --- boton borrar/editar de comentarios --- */
 .btn-comment-delete, .btn-comment-edit {
   display: flex;
@@ -756,6 +768,8 @@ color: #f8f8f8;
   border-radius: 10px;
   background-color: #62626C;
   border: 1px solid #F94CA2; 
+  padding: 7px 10px;
+  text-align: center;
 }
 
 #myname, .aboutme, .follow-me {
@@ -800,7 +814,7 @@ color: #f8f8f8;
   justify-self: center;
   height: 40px;
 }
-#btn-edit-profile-all-Information {
+#btn-edit-profile-all-Information, #btn-update-profile-information {
   margin: 7px 7px 7px 15px;
   width: 100px;
   border: 1px solid rgba(249, 76, 162, 1);
@@ -813,7 +827,7 @@ color: #f8f8f8;
   justify-self: end;
   margin: 7px 15px 0px;
 }
-/* <<<<<<<<------------------- */
+
 .aside-profile-mobile ul {
   line-height: 28px;
   color: #F94CA2;
@@ -935,7 +949,19 @@ div.vertical-line-left{
   height: 1px;
   margin-bottom: 5px;
 }
-
+/* ----- Edit textarea ----- */
+.profile-user-name-edit, #description-aboutme-edit, #links-aboutme-edit {
+  margin: 10px 0px;
+  background-color: rgba(225,225,225, 0.2);
+  color: white;
+  border-radius: 10px;
+  outline: none;
+  padding: 10px;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 300;
+  resize:inherit;
+}
+/* ------------------------------ */
 .hidden{
   display: none;
 }

@@ -86,7 +86,9 @@ export const validarLogin = (email, password) => {
       document.querySelector('#btnLoginEmail').innerHTML = 'Iniciar Sesión';
       document.querySelector('#btnLoginEmail').disabled = false;
       const errorCode = error.code;
+      // console.log(errorCode);
       const errorMessage = error.message;
+      // console.log(errorMessage);
       const content = document.querySelector('#msjError');
       content.style.display = 'block';
       switch (errorCode) {
@@ -132,9 +134,9 @@ export const loginConGoogle = () => {
           fullName: fullNameUser,
           photo: photoUser,
           email: emailUser,
-          about: '',
-          url: '',
-          phrase: '',
+          about: 'Escribe aquí sobre tí y lo que mas te gusta hacer!!!',
+          url: 'Escribe tus redes sociales aquí para que te sigan tus aliadas!!!',
+          phrase: 'Si se puede imaginar, se puede programar.',
         };
         // db.collection('pruebita')
         dataBase().collection(constantes.TABLA_USUARIO)
@@ -175,9 +177,9 @@ export const registrarUsuario = (user) => {
         fullName: fullNameUser,
         photo: photoUser,
         email: user.email,
-        about: '',
-        url: '',
-        phrase: '',
+        about: 'Escribe aquí sobre tí y lo que mas te gusta hacer!!!',
+        url: 'Escribe tus redes sociales aquí para que te sigan tus aliadas!!!',
+        phrase: 'Si se puede imaginar, se puede programar.',
       };
       // db.collection('pruebita')
       dataBase().collection(constantes.TABLA_USUARIO)

@@ -1,5 +1,6 @@
 {
   "name": "social-network",
+  "homepage":"https://github.com/ko4la07/LIM015-social-network",
   "version": "1.0.0",
   "description": "Social Network @ Laboratoria",
   "main": "src/index.html",
