@@ -674,7 +674,7 @@ color: #f8f8f8;
   #favorite-phrase {
     display: flex;
   }
-  #profile-phrase, .line-black-profile  {
+  #profile-phrase, .line-black-profile, #btn-phrase-edit {
     display: none;
   }
 
@@ -950,7 +950,7 @@ div.vertical-line-left{
   margin-bottom: 5px;
 }
 /* ----- Edit textarea ----- */
-.profile-user-name-edit, #description-aboutme-edit, #links-aboutme-edit {
+.profile-user-name-edit, #description-aboutme-edit, #links-aboutme-edit, #profile-phrase-edit{
   margin: 10px 0px;
   background-color: rgba(225,225,225, 0.2);
   color: white;
@@ -960,6 +960,31 @@ div.vertical-line-left{
   font-family: 'Roboto', sans-serif;
   font-weight: 300;
   resize:inherit;
+}
+#profile-phrase-edit{
+  margin: 10px 10px;
+  background-color: rgba(225,225,225, 0.2);
+  color: white;
+  border-radius: 10px;
+  outline: none;
+  padding: 10px;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 300;
+  resize:inherit;
+}
+#btn-phrase-edit {
+  background-color: transparent;
+  border: none;
+}
+#btn-phrase-save {
+  display: flex;
+  color: white;
+  padding: 2px 0px;
+  margin: 10px 15px;
+  background-color: transparent;
+  cursor: pointer;
+  justify-self: end;
+  border: none;
 }
 /* ------------------------------ */
 .hidden{
